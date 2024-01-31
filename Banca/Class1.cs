@@ -5,13 +5,13 @@ namespace Banca
     internal class ContoCorrente
     {
         // PROPRIETÁ
-        public string NumeroConto { get; set; }
+        public uint NumeroConto { get; set; }
         public string Intestatario { get; set; }
         public DateTime AperturaConto { get; set; }
-        public int SaldoConto { get; set; }
+        public uint SaldoConto { get; set; }
 
         //COSTRUTTORE
-        public ContoCorrente(string numeroConto, string intestatario, DateTime aperturaConto, int saldo)
+        public ContoCorrente(uint numeroConto, string intestatario, DateTime aperturaConto, uint saldo)
         {
             NumeroConto = numeroConto;
             Intestatario = intestatario;
@@ -26,13 +26,13 @@ namespace Banca
         //METODI
         public string OpenCC()
         {
-            return ($"Numero dei ContoCorrente {NumeroConto} " +
-                    $"\nintestato al Sg.{Intestatario} " +
-                    $"in data {AperturaConto} " +
-                    $"\ncon saldo al momento dell'apertura {SaldoConto}");
+            return ($"Numero del ContoCorrente {NumeroConto}\n " +
+                    $"intestato al Sg.{Intestatario}\n " +
+                    $"in data {AperturaConto}\n " +
+                    $"con saldo al momento dell'apertura {SaldoConto}");
         }
 
-        public void PrelievoCC(int importo)
+        public void PrelievoCC(uint importo)
         {
             if (importo <= SaldoConto && importo > 0)
             {
@@ -44,7 +44,7 @@ namespace Banca
             }
         }
 
-        public bool PrimoDepositoCC(int importo)
+        public bool PrimoDepositoCC(uint importo)
         {
             if (importo >= 1000)
             {
@@ -59,7 +59,7 @@ namespace Banca
             }
         }
 
-        public void DepositoCC(int importo)
+        public void DepositoCC(uint importo)
         {
             if (importo > 0)
             {
@@ -81,4 +81,5 @@ namespace Banca
         }
 
     }
+
 }
